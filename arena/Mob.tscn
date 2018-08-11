@@ -65,9 +65,8 @@ uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
 distance_fade_enable = false
 
-[node name="Mob" type="KinematicBody"]
+[node name="Mob" type="KinematicBody" index="0"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5753, 2, 0 )
 input_ray_pickable = true
 input_capture_on_drag = false
 collision_layer = 1
