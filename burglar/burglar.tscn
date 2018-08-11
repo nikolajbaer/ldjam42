@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://burglar/SecurityCamera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://burglar/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://burglar/models/painting1.obj" type="ArrayMesh" id=3]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -41,11 +42,13 @@ subdivide_depth = 0
 
 [node name="Gallery" type="Spatial" parent="." index="0"]
 
+editor/display_folded = true
 transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Floor" type="StaticBody" parent="Gallery" index="0"]
 
+editor/display_folded = true
 input_ray_pickable = true
 input_capture_on_drag = false
 collision_layer = 1
@@ -79,7 +82,6 @@ material/0 = null
 
 [node name="Wall" type="StaticBody" parent="Gallery" index="1"]
 
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -257,7 +259,6 @@ material/0 = null
 
 [node name="Column4" type="StaticBody" parent="Gallery" index="6"]
 
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 11 )
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -397,5 +398,22 @@ _sections_unfolded = [ "Light" ]
 [node name="Player" parent="." index="2" instance=ExtResource( 2 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.2944 )
+
+[node name="Treasure" type="MeshInstance" parent="." index="3"]
+
+transform = Transform( 0.00445341, 0, 0.24996, 0, 0.25, 0, -0.24996, 0, 0.00445341, -14.8458, 2.9465, 19.6117 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 3 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
 
 

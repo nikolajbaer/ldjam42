@@ -1,36 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://burglar/Player.gd" type="Script" id=1]
+[ext_resource path="res://burglar/models/robbie-head.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://racoon.tres" type="Material" id=3]
+[ext_resource path="res://burglar/models/robbie-arm-short.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://burglar/models/robbie-body.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://burglar/models/robbie-foot.obj" type="ArrayMesh" id=6]
 
 [sub_resource type="CapsuleShape" id=1]
 
 radius = 1.0
 height = 1.0
-
-[sub_resource type="CapsuleMesh" id=2]
-
-custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
-radius = 1.0
-mid_height = 1.0
-radial_segments = 64
-rings = 8
-
-[sub_resource type="PrismMesh" id=3]
-
-custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
-left_to_right = 0.5
-size = Vector3( 2, 2, 2 )
-subdivide_width = 0
-subdivide_height = 0
-subdivide_depth = 0
-
-[sub_resource type="CubeMesh" id=4]
-
-custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
-size = Vector3( 0.25, 0.25, 1 )
-subdivide_width = 0
-subdivide_height = 0
-subdivide_depth = 0
 
 [node name="Player" type="KinematicBody" index="0"]
 
@@ -75,7 +55,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Model" type="MeshInstance" parent="Pivot" index="0"]
 
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.5, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.5, 0.837368 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -85,14 +65,13 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 2 )
-skeleton = NodePath("..")
-material/0 = null
+mesh = null
+skeleton = NodePath("")
 _sections_unfolded = [ "Transform" ]
 
-[node name="MeshInstance" type="MeshInstance" parent="Pivot/Model" index="0"]
+[node name="Head" type="MeshInstance" parent="Pivot/Model" index="0"]
 
-transform = Transform( -0.901685, 1.20344e-15, -3.27004e-08, 0, 0.788721, 6.52838e-09, 7.88278e-08, 1.37658e-08, -0.374048, 0, 0.584541, -1.73738 )
+transform = Transform( 0.25, 0, -1.09278e-08, 1.09278e-08, 4.77671e-16, 0.25, 0, -0.25, 4.77671e-16, 0, -0.0306582, -1.21707 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -102,14 +81,14 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 3 )
+mesh = ExtResource( 2 )
 skeleton = NodePath("..")
-material/0 = null
-_sections_unfolded = [ "Transform" ]
+material/0 = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Visibility", "material" ]
 
-[node name="Arm" type="MeshInstance" parent="Pivot/Model" index="1"]
+[node name="Right Arm" type="MeshInstance" parent="Pivot/Model" index="1"]
 
-transform = Transform( 1, 0, 0, 0, -0.173648, -0.984808, 0, 0.984808, -0.173648, 0.858077, 0.577396, -0.803195 )
+transform = Transform( 0.25, 0, 0, 0, 0.0431761, -0.246243, 0, 0.246243, 0.0431761, -2.27146, 0.0428362, -0.907912 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -119,14 +98,14 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 4 )
+mesh = ExtResource( 4 )
 skeleton = NodePath("..")
-material/0 = null
-_sections_unfolded = [ "Transform" ]
+material/0 = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "material" ]
 
-[node name="Arm2" type="MeshInstance" parent="Pivot/Model" index="2"]
+[node name="Left Arm" type="MeshInstance" parent="Pivot/Model" index="2"]
 
-transform = Transform( 1, 0, 0, 0, -0.173648, -0.984808, 0, 0.984808, -0.173648, -0.781817, 0.577396, -0.803195 )
+transform = Transform( -0.247315, -0.00631072, 0.0359915, 0.0205501, 0.17959, 0.172699, -0.0302144, 0.173803, -0.177143, 1.84115, -0.377381, -0.810109 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -136,9 +115,60 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 4 )
+mesh = ExtResource( 4 )
 skeleton = NodePath("..")
-material/0 = null
-_sections_unfolded = [ "Transform" ]
+material/0 = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Pivot/Model" index="3"]
+
+transform = Transform( 0.25, 0, 0, 0, 2.98122e-09, 0.25, 0, -0.25, 2.98122e-09, -0.11702, -1.26946, 0.841281 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 5 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="Right Foot" type="MeshInstance" parent="Pivot/Model" index="4"]
+
+transform = Transform( 0.25, 0, 0, 0, 0.0431761, -0.246243, 0, 0.246243, 0.0431761, -0.819256, 0.274482, 0.994228 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 6 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="Left Foot" type="MeshInstance" parent="Pivot/Model" index="5"]
+
+transform = Transform( 0.25, 0, 0, 0, 0.0431761, -0.246243, 0, 0.246243, 0.0431761, 0.394195, 0.248087, 0.950575 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 6 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "material" ]
 
 
