@@ -2,7 +2,7 @@
 
 [ext_resource path="res://burglar/SecurityCamera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://burglar/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://burglar/models/painting1.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://burglar/Treasure.tscn" type="PackedScene" id=3]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -42,13 +42,13 @@ subdivide_depth = 0
 
 background_mode = 0
 background_sky_custom_fov = 0.0
-background_color = Color( 0, 0, 0, 1 )
+background_color = Color( 0.9375, 0.845947, 0.845947, 1 )
 background_energy = 1.0
 background_canvas_max_layer = 0
 ambient_light_color = Color( 1, 1, 1, 1 )
-ambient_light_energy = 1.0
-ambient_light_sky_contribution = 1.0
-fog_enabled = true
+ambient_light_energy = 0.9
+ambient_light_sky_contribution = 0.3
+fog_enabled = false
 fog_color = Color( 0.5, 0.6, 0.7, 1 )
 fog_sun_color = Color( 1, 0.9, 0.7, 1 )
 fog_sun_amount = 0.05
@@ -96,38 +96,36 @@ dof_blur_near_distance = 2.0
 dof_blur_near_transition = 1.0
 dof_blur_near_amount = 0.1
 dof_blur_near_quality = 1
-glow_enabled = true
-glow_levels/1 = false
-glow_levels/2 = false
+glow_enabled = false
+glow_levels/1 = true
+glow_levels/2 = true
 glow_levels/3 = true
-glow_levels/4 = false
+glow_levels/4 = true
 glow_levels/5 = true
-glow_levels/6 = false
-glow_levels/7 = false
-glow_intensity = 0.8
+glow_levels/6 = true
+glow_levels/7 = true
+glow_intensity = 8.0
 glow_strength = 1.0
-glow_bloom = 0.0
-glow_blend_mode = 2
+glow_bloom = 0.02
+glow_blend_mode = 1
 glow_hdr_threshold = 1.05
 glow_hdr_scale = 2.0
 glow_bicubic_upscale = false
-adjustment_enabled = true
+adjustment_enabled = false
 adjustment_brightness = 0.88
 adjustment_contrast = 1.24
 adjustment_saturation = 1.1
-_sections_unfolded = [ "Ambient Light", "Glow" ]
+_sections_unfolded = [ "Ambient Light", "Background", "Glow/levels" ]
 
 [node name="burglar" type="Spatial" index="0"]
 
 [node name="Gallery" type="Spatial" parent="." index="0"]
 
-editor/display_folded = true
 transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Floor" type="StaticBody" parent="Gallery" index="0"]
 
-editor/display_folded = true
 input_ray_pickable = true
 input_capture_on_drag = false
 collision_layer = 1
@@ -198,7 +196,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Wall2" type="StaticBody" parent="Gallery" index="2"]
 
-editor/display_folded = true
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10, 0, 0 )
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -219,7 +216,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="MeshInstance" type="MeshInstance" parent="Gallery/Wall2" index="1"]
 
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 4.23516e-22, 0, 1, 0, 5, 0 )
+transform = Transform( -4.37114e-08, -1, 7.10543e-15, 1, -4.37114e-08, 0, 0, 7.10543e-15, 1, 0, 5, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -446,56 +443,15 @@ _sections_unfolded = [ "Transform" ]
 
 transform = Transform( 0.642788, 0.462848, 0.323744, 0, -0.422618, 1.35946, 0.766044, -0.388376, -0.271654, -3.33333, 10, -1.33333 )
 
-[node name="DirectionalLight" type="DirectionalLight" parent="." index="1"]
-
-transform = Transform( 0.856424, 0.223189, -0.465536, 0, 0.901726, 0.432309, 0.516272, -0.37024, 0.77226, -13.657, 16.8611, 0 )
-layers = 1
-light_color = Color( 1, 1, 1, 1 )
-light_energy = 0.5
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.1
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
-directional_shadow_mode = 2
-directional_shadow_split_1 = 0.1
-directional_shadow_split_2 = 0.2
-directional_shadow_split_3 = 0.5
-directional_shadow_blend_splits = false
-directional_shadow_normal_bias = 0.8
-directional_shadow_bias_split_scale = 0.25
-directional_shadow_depth_range = 0
-directional_shadow_max_distance = 200.0
-_sections_unfolded = [ "Light" ]
-
-[node name="Player" parent="." index="2" instance=ExtResource( 2 )]
+[node name="Player" parent="." index="1" instance=ExtResource( 2 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.2944 )
 
-[node name="Treasure" type="MeshInstance" parent="." index="3"]
+[node name="Treasure" parent="." index="2" instance=ExtResource( 3 )]
 
-transform = Transform( 0.00445341, 0, 0.24996, 0, 0.25, 0, -0.24996, 0, 0.00445341, -14.8458, 2.9465, 19.6117 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 3 )
-skeleton = NodePath("..")
-material/0 = null
-_sections_unfolded = [ "Transform" ]
+transform = Transform( 0.00445341, 0, 0.24996, 0, 0.25, 0, -0.24996, 0, 0.00445341, -14.8458, 3.57075, -9.77071 )
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="4"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="3"]
 
 environment = SubResource( 7 )
 

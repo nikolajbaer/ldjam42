@@ -8,6 +8,8 @@ var vel
 var camera
 var detect_radius
 var pivot
+var grabzone
+var grabbed_thing
 
 func _ready():
 	vel = Vector3(0,0,0)
@@ -15,7 +17,9 @@ func _ready():
 	camera = $Camera
 	detect_radius = 1.5
 	pivot = $Pivot
-	
+	grabzone = find_node("GrabZone")
+	grabbed_thing = null
+
 func _physics_process(delta):
 		
 	var spd = 0
@@ -30,6 +34,28 @@ func _physics_process(delta):
 	else:
 		detect_radius = 1.5
 	
+	if Input.is_action_just_pressed("grab"):
+		# check collisions for treasure
+		# if treasure, put up arms
+		# if treasure, attach treasure to his...head 
+		var maybe_treasures = grabzone.get_overlapping_areas()
+		for t in maybe_treasures:
+			if t.get_parent().name == "Treasure":
+				grabbed_thing = t.get_parent()
+
+	if grabbed_thing:
+		$"Pivot/Model/Left Arm".hide()
+		$"Pivot/Model/Left Arm Long".show()
+		$"Pivot/Model/Right Arm".hide()
+		$"Pivot/Model/Right Arm Long".show()
+		var nv = Vector3(get_translation())
+		nv.y += 6
+		grabbed_thing.set_translation(nv)
+		grabbed_thing.rotation = $Pivot.rotation
+	
+	if !grabbed_thing:
+		pass
+
 	var dir = Vector3(0,0,spd)
 	dir = dir.rotated(Vector3(0,1,0),pivot.rotation.y).normalized() * abs(spd) * SPEED
 	
