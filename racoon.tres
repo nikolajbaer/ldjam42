@@ -45,16 +45,17 @@ void fragment() {
 	AO_LIGHT_AFFECT = ao_light_affect;
 }
 "
+_sections_unfolded = [ "Resource" ]
 
 [resource]
 
 render_priority = 0
 shader = SubResource( 1 )
 shader_param/albedo = Color( 1, 1, 1, 1 )
-shader_param/specular = 0.5
+shader_param/specular = 6.0
 shader_param/metallic = 0.0
-shader_param/roughness = 0.0
-shader_param/point_size = 1.0
+shader_param/roughness = 1.0
+shader_param/point_size = 0.0
 shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
 shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
 shader_param/ao_texture_channel = Plane( 0, 0, 1, 0 )
@@ -64,5 +65,5 @@ shader_param/uv1_offset = Vector3( 0, 0, 0 )
 shader_param/uv2_scale = Vector3( 0.25, 1, 1 )
 shader_param/uv2_offset = Vector3( 0, 0, 0 )
 shader_param/texture_ambient_occlusion = ExtResource( 1 )
-_sections_unfolded = [ "Resource" ]
+_sections_unfolded = [ "Resource", "shader_param" ]
 
