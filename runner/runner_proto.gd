@@ -7,7 +7,7 @@ var tower
 
 func _ready():
 	$StaticBody.queue_free() # Placeholder
-	tower = preload("res://Tower.tscn")
+	tower = preload("res://runner/Tower.tscn")
 	
 	for i in range(100):
 		for j in range (5):
