@@ -13,6 +13,7 @@ var grabzone
 var grabbed_thing
 var walking
 var idle
+var running
 
 func _ready():
 	vel = Vector3(0,0,0)
@@ -24,10 +25,11 @@ func _ready():
 	grabbed_thing = null
 	idle = true
 	walking = false
+	running = false
 
 func _physics_process(delta):
 		
-	var old_state = "idle" if idle else "walking" if walking else "idk"
+	var old_state = "idle" if idle else "walking" if walking else "running" if running else "idk"
 
 	var spd = 0
 	if Input.is_action_pressed("forward"):
@@ -41,17 +43,28 @@ func _physics_process(delta):
 	else:
 		detect_radius = 1.5
 		
+	
 	if spd > 0:
 		walking = true
 		idle = false
+		running = false
 	if spd == 0:
-		walking = false
 		idle = true
+		walking = false
+		running = false	
+	if spd > 1:
+		running = true
+		walking = false
+		idle = false
 	
-	if (old_state == "idle" || old_state == "idk") && walking:
+	if walking && (old_state != "walking"):
 		$AnimationPlayer.play("Walk")
-	if (old_state == "walking" || old_state == "idk") && idle:
+
+	if idle && (old_state != "idle"):
 		$AnimationPlayer.play("Idle")
+
+	if running && (old_state != "running"):
+		$AnimationPlayer.play("Run")
 	
 	if Input.is_action_just_pressed("grab"):
 		# check collisions for treasure
