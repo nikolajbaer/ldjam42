@@ -19,7 +19,7 @@ func _ready():
 	vel = Vector3(0,0,0)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	camera = $Camera
-	detect = $DetectionZone/CollisionShape
+	detect = $Pivot/DetectZone
 	pivot = $Pivot
 	grabzone = find_node("GrabZone")
 	grabbed_thing = null
@@ -97,7 +97,8 @@ func _input(event):
     if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
         pivot.rotate_y(deg2rad(event.relative.x * MOUSE_SENSITIVITY * -1))
 
-func _on_DetectionZone_area_entered(area):
+
+
+func _on_DetectZone_area_entered(area):
 	if area.name == "AlarmZone":
 		emit_signal("detected")
-
