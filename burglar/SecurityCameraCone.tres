@@ -1,6 +1,6 @@
 [gd_resource type="CylinderMesh" load_steps=2 format=2]
 
-[sub_resource type="SpatialMaterial" id=1]
+[sub_resource type="SpatialMaterial" id=4]
 
 render_priority = 0
 flags_transparent = true
@@ -54,11 +54,11 @@ _sections_unfolded = [ "Albedo", "Transmission" ]
 
 [resource]
 
-material = SubResource( 1 )
+material = SubResource( 4 )
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 top_radius = 0.001
-bottom_radius = 8.0
-height = 30.0
+bottom_radius = 5.0
+height = 20.0
 radial_segments = 12
 rings = 2
 
