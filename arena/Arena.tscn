@@ -22,7 +22,7 @@ size = Vector2( 10, 50 )
 subdivide_width = 0
 subdivide_depth = 0
 
-[node name="arena" type="Spatial" index="0"]
+[node name="arena" type="Spatial"]
 
 script = ExtResource( 1 )
 
@@ -149,14 +149,5 @@ transform = Transform( 5, 0, 0, 0, 3, 0, 0, 0, 5, -30, 1, 30 )
 [node name="Obstacle4" parent="." index="8" instance=ExtResource( 3 )]
 
 transform = Transform( 5, 0, 0, 0, 3, 0, 0, 0, 5, -30, 1, -30 )
-
-[node name="Timer" type="Timer" parent="." index="9"]
-
-process_mode = 1
-wait_time = 3.0
-one_shot = true
-autostart = false
-
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 
