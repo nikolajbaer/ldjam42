@@ -124,8 +124,6 @@ _sections_unfolded = [ "Ambient Light", "Background", "Glow/levels" ]
 
 [node name="burglar" type="Spatial" index="0"]
 
-script = ExtResource( 1 )
-
 [node name="Gallery" type="Spatial" parent="." index="0"]
 
 editor/display_folded = true
@@ -134,6 +132,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Floor" type="StaticBody" parent="Gallery" index="0"]
 
+editor/display_folded = true
 input_ray_pickable = true
 input_capture_on_drag = false
 collision_layer = 1
@@ -205,6 +204,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Wall2" type="StaticBody" parent="Gallery" index="2"]
 
+editor/display_folded = true
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10, 0, 0 )
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -344,6 +344,7 @@ material/0 = null
 
 [node name="Column4" type="StaticBody" parent="Gallery" index="6"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 11 )
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -448,45 +449,16 @@ _sections_unfolded = [ "Spot", "Transform" ]
 
 _sections_unfolded = [ "Transform" ]
 
-[node name="SecurityCamera" parent="Gallery/Detectors" index="0" instance=ExtResource( 2 )]
+[node name="SecurityCamera" parent="Gallery/Detectors" index="0" instance=ExtResource( 1 )]
 
-transform = Transform( 0.642788, 0.462848, 0.323744, 1.14469, -0.543514, -0.524415, -0.0667652, 0.314522, -0.879182, -3.33333, 10, -1.33333 )
-target = NodePath("../DetectionZone")
+transform = Transform( 0.642788, 0.462848, 0.323744, 0, -0.422618, 1.35946, 0.766044, -0.388376, -0.271654, -3.33333, 10, -1.33333 )
+target = NodePath("")
 
-[node name="DetectionZone" parent="Gallery/Detectors" index="1" instance=ExtResource( 3 )]
+[node name="Player" parent="." index="1" instance=ExtResource( 2 )]
 
-[node name="Alarm" type="Spatial" parent="Gallery" index="11"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.2944 )
 
-script = ExtResource( 4 )
-
-[node name="Alarm" type="OmniLight" parent="Gallery/Alarm" index="0"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0 )
-layers = 1
-light_color = Color( 1, 0, 0, 1 )
-light_energy = 0.0
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
-omni_range = 39.0426
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light", "Omni" ]
-
-[node name="Player" parent="." index="1" instance=ExtResource( 5 )]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -27.2944 )
-
-[node name="Treasure" parent="." index="2" instance=ExtResource( 6 )]
+[node name="Treasure" parent="." index="2" instance=ExtResource( 3 )]
 
 transform = Transform( 0.00445341, 0, 0.24996, 0, 0.25, 0, -0.24996, 0, 0.00445341, -14.8458, 3.57075, -9.77071 )
 

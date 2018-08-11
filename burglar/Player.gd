@@ -11,6 +11,9 @@ var detect
 var pivot
 var grabzone
 var grabbed_thing
+var walking
+var idle
+var running
 
 func _ready():
 	vel = Vector3(0,0,0)
@@ -20,9 +23,14 @@ func _ready():
 	pivot = $Pivot
 	grabzone = find_node("GrabZone")
 	grabbed_thing = null
+	idle = true
+	walking = false
+	running = false
 
 func _physics_process(delta):
 		
+	var old_state = "idle" if idle else "walking" if walking else "running" if running else "idk"
+
 	var spd = 0
 	if Input.is_action_pressed("forward"):
 		spd = 1
@@ -34,6 +42,29 @@ func _physics_process(delta):
 		detect.scale = Vector3(2,1,2)
 	else:
 		detect.scale = Vector3(1,1,1)
+	
+	if spd > 0:
+		walking = true
+		idle = false
+		running = false
+	if spd == 0:
+		idle = true
+		walking = false
+		running = false	
+	if spd > 1:
+		running = true
+		walking = false
+		idle = false
+	
+	if walking && (old_state != "walking"):
+		$AnimationPlayer.play("Walk")
+
+	if idle && (old_state != "idle"):
+		$AnimationPlayer.play("Idle")
+
+	if running && (old_state != "running"):
+		$AnimationPlayer.play("Run")
+>>>>>>> b69346c999fe640df5df03c460955d6298acc973
 	
 	if Input.is_action_just_pressed("grab"):
 		# check collisions for treasure
