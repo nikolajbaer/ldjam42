@@ -7,7 +7,7 @@ const GRAVITY = 5
 const MOUSE_SENSITIVITY = 0.1
 var vel
 var camera
-var detect_radius
+var detect
 var pivot
 var grabzone
 var grabbed_thing
@@ -16,7 +16,7 @@ func _ready():
 	vel = Vector3(0,0,0)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	camera = $Camera
-	detect_radius = 1.5
+	detect = $DetectionZone/CollisionShape
 	pivot = $Pivot
 	grabzone = find_node("GrabZone")
 	grabbed_thing = null
@@ -31,9 +31,9 @@ func _physics_process(delta):
 		
 	if Input.is_action_pressed("sprint"):
 		spd *= SPRINT
-		detect_radius = 5
+		detect.scale = Vector3(2,1,2)
 	else:
-		detect_radius = 1.5
+		detect.scale = Vector3(1,1,1)
 	
 	if Input.is_action_just_pressed("grab"):
 		# check collisions for treasure
