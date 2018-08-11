@@ -1,12 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://burglar/models/painting1.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://painting-material.tres" type="Material" id=2]
 
 [sub_resource type="BoxShape" id=1]
 
 extents = Vector3( 15, 19, 5 )
 
-[node name="Treasure" type="MeshInstance"]
+[node name="Treasure" type="MeshInstance" index="0"]
 
 transform = Transform( 0.00445341, 0, 0.24996, 0, 0.25, 0, -0.24996, 0, 0.00445341, -14.8458, 2.9465, 19.6117 )
 layers = 1
@@ -20,8 +21,8 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 1 )
 skeleton = NodePath("..")
-material/0 = null
-_sections_unfolded = [ "Transform" ]
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "material" ]
 
 [node name="Area" type="Area" parent="." index="0"]
 
