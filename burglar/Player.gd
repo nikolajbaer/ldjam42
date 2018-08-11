@@ -64,7 +64,7 @@ func _physics_process(delta):
 
 	if running && (old_state != "running"):
 		$AnimationPlayer.play("Run")
->>>>>>> b69346c999fe640df5df03c460955d6298acc973
+
 	
 	if Input.is_action_just_pressed("grab"):
 		# check collisions for treasure
