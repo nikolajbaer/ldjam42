@@ -486,6 +486,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -27.2944 )
 [node name="Treasure" parent="." index="2" instance=ExtResource( 6 )]
 
 transform = Transform( 0.00445341, 0, 0.24996, 0, 0.25, 0, -0.24996, 0, 0.00445341, -14.8458, 3.57075, -9.77071 )
+_sections_unfolded = [ "Transform", "material" ]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="3"]
 
