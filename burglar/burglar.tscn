@@ -6,7 +6,7 @@
 [ext_resource path="res://burglar/Alarm.gd" type="Script" id=4]
 [ext_resource path="res://burglar/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://burglar/Treasure.tscn" type="PackedScene" id=6]
-[ext_resource path="res://burglar/ld42-muzak.wav" type="AudioStream" id=7]
+[ext_resource path="res://burglar/ld42-muzak.ogg" type="AudioStream" id=7]
 [ext_resource path="res://burglar/alarm.wav" type="AudioStream" id=8]
 
 [sub_resource type="BoxShape" id=1]
