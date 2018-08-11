@@ -78,7 +78,7 @@ subdivide_depth = 0
 
 extents = Vector3( 3, 5, 2 )
 
-[node name="WayOut" type="Spatial" index="0"]
+[node name="WayOut" type="Spatial"]
 
 script = ExtResource( 1 )
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://burglar/burglar.gd" type="Script" id=1]
 [ext_resource path="res://burglar/SecurityCamera.tscn" type="PackedScene" id=2]
@@ -42,6 +42,17 @@ custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 size = Vector3( 2, 20, 2 )
 subdivide_width = 0
 subdivide_height = 0
+subdivide_depth = 0
+
+[sub_resource type="BoxShape" id=8]
+
+extents = Vector3( 10, 5, 1 )
+
+[sub_resource type="PlaneMesh" id=9]
+
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+size = Vector2( 20, 10 )
+subdivide_width = 0
 subdivide_depth = 0
 
 [sub_resource type="Environment" id=7]
@@ -123,13 +134,12 @@ adjustment_contrast = 1.24
 adjustment_saturation = 1.1
 _sections_unfolded = [ "Ambient Light", "Background", "Glow/levels" ]
 
-[node name="burglar" type="Spatial"]
+[node name="burglar" type="Spatial" index="0"]
 
 script = ExtResource( 1 )
 
 [node name="Gallery" type="Spatial" parent="." index="0"]
 
-editor/display_folded = true
 transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]
 
@@ -169,6 +179,7 @@ material/0 = null
 
 [node name="Wall" type="StaticBody" parent="Gallery" index="1"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -482,6 +493,42 @@ omni_attenuation = 1.0
 omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light", "Omni" ]
+
+[node name="Wall3" type="StaticBody" parent="Gallery" index="12"]
+
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.666667, 5, 20 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+friction = 1.0
+bounce = 0.0
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Gallery/Wall3" index="0"]
+
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0 )
+shape = SubResource( 8 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Gallery/Wall3" index="1"]
+
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.666667, 0, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 9 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
 
 [node name="Player" parent="." index="1" instance=ExtResource( 5 )]
 
