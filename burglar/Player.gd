@@ -1,5 +1,6 @@
 extends KinematicBody
 
+signal detected
 const SPEED = 3
 const SPRINT = 3
 const GRAVITY = 5
@@ -65,4 +66,7 @@ func _input(event):
     if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
         pivot.rotate_y(deg2rad(event.relative.x * MOUSE_SENSITIVITY * -1))
 
-		
+func _on_DetectionZone_area_entered(area):
+	if area.name == "AlarmZone":
+		emit_signal("detected")
+

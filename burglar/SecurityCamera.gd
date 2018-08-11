@@ -1,28 +1,11 @@
 extends Spatial
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-const X = 5
-const SPD = 0.2
-var flip = true
-var a = 0
-var detect
+export (NodePath) var target = null
+var _target
 
 func _ready():
-	detect = $Detect
+	_target = get_node(target)
 
-func _process(delta):
-	if flip:
-		if a > deg2rad(-45):
-			a -= deg2rad(SPD)
-		else:
-			flip = false
-	else:
-		if a < deg2rad(45):
-			a += deg2rad(SPD)
-		else:
-			flip = true
-	
-
-	detect.rotation.z = a
+func _process():
+	if _target != null:
+		look_at(_target.global_transform.origin,Vector3(0,1,0))
