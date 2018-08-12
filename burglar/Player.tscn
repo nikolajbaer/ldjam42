@@ -176,7 +176,7 @@ tracks/6/keys = {
 "values": [ Vector3( -90, 90, -90 ), Vector3( -86.0719, -121.567, 121.931 ), Vector3( -71.8542, -90, 90 ), Vector3( -90, -87, 90 ), Vector3( -85.3895, 122.962, -122.226 ), Vector3( -70.2768, 90, -90 ) ]
 }
 
-[node name="Player" type="KinematicBody"]
+[node name="Player" type="KinematicBody" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -209,8 +209,6 @@ far = 500.0
 _sections_unfolded = [ "Transform" ]
 
 [node name="Pivot" type="Spatial" parent="." index="1"]
-
-editor/display_folded = true
 
 [node name="Model" type="MeshInstance" parent="Pivot" index="0"]
 
@@ -406,7 +404,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="DetectZone" type="Area" parent="Pivot" index="2"]
 
-editor/display_folded = true
 input_ray_pickable = false
 input_capture_on_drag = false
 space_override = 0

@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://burglar/burglar.gd" type="Script" id=1]
-[ext_resource path="res://burglar/busted.png" type="Texture" id=2]
-[ext_resource path="res://burglar/you_got_it.png" type="Texture" id=3]
-[ext_resource path="res://burglar/snatch_the_loot.png" type="Texture" id=4]
+[ext_resource path="res://burglar/BUSTED.png" type="Texture" id=2]
+[ext_resource path="res://burglar/ESCAPED!!.png" type="Texture" id=3]
+[ext_resource path="res://burglar/steal-painting.png" type="Texture" id=4]
 [ext_resource path="res://Level1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://burglar/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://burglar/ld42-muzak.ogg" type="AudioStream" id=7]
@@ -12,8 +12,8 @@
 [sub_resource type="Animation" id=1]
 
 resource_name = "Busted"
-length = 3.0
-loop = false
+length = 2.0
+loop = true
 step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("busted:position")
@@ -22,28 +22,16 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 1.4, 2.1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 514.5, 690.4 ), Vector2( 518.5, 234.4 ), Vector2( 536.5, 293.4 ), Vector2( 531.5, 285.4 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("busted:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1, 1.4, 2.1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0.190583, 1.15849 ), Vector2( 0.737668, 1.29057 ), Vector2( 1.5852, 2.59245 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( -228.164, 305.93 ), Vector2( 532.479, 312.845 ), Vector2( 1254.4, 311.462 ) ]
 }
 
 [sub_resource type="Animation" id=2]
 
-length = 5.0
-loop = false
+length = 2.0
+loop = true
 step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("snatch_the_loot:position")
@@ -52,41 +40,17 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 1.4, 1.6, 1.8, 4, 4.4, 5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 511.5, 803.573 ), Vector2( 510.5, 157.573 ), Vector2( 530, 283.301 ), Vector2( 531, 208.398 ), Vector2( 523, 263.553 ), Vector2( 523, 263.553 ), Vector2( 524.5, 146.039 ), Vector2( 517.5, 881.66 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("snatch_the_loot:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("snatch_the_loot:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 1, 1.4, 1.6, 1.8, 4, 4.4, 5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0.360399, 0.854369 ), Vector2( 0.360399, 0.854369 ), Vector2( 0.757835, 1.39806 ), Vector2( 0.552707, 1.20388 ), Vector2( 0.85755, 0.893204 ), Vector2( 0.85755, 0.893204 ), Vector2( 0.451567, 0.92233 ), Vector2( 0.217949, 1.67961 ) ]
+"values": [ Vector2( -515.173, 555.39 ), Vector2( 1529.69, 572.36 ) ]
 }
 
 [sub_resource type="Animation" id=3]
 
 resource_name = "YouGotIt"
-length = 3.0
-loop = false
+length = 2.0
+loop = true
 step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("you_got_it:position")
@@ -95,22 +59,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.9, 1.6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 517.172, 773.9 ), Vector2( 520.84, 294.9 ), Vector2( 523.859, 310.9 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("you_got_it:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.9, 1.6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0.655877, 0.311765 ), Vector2( 1.32027, 2.60588 ), Vector2( 1.28279, 0.62549 ) ]
+"values": [ Vector2( -270.924, 312.594 ), Vector2( 1269.09, 318.958 ) ]
 }
 
 [node name="burglar" type="Spatial"]
@@ -134,22 +86,19 @@ size_flags_vertical = 1
 
 [node name="busted" type="Sprite" parent="HUD" index="0"]
 
-position = Vector2( 514.5, 690.4 )
-scale = Vector2( 0.190583, 1.15849 )
+position = Vector2( -228.164, 305.93 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Animation", "Transform", "Visibility" ]
 
 [node name="you_got_it" type="Sprite" parent="HUD" index="1"]
 
-position = Vector2( 517.172, 773.9 )
-scale = Vector2( 0.655877, 0.311765 )
+position = Vector2( -270.924, 312.594 )
 texture = ExtResource( 3 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Animation", "Material", "Transform", "Visibility" ]
 
 [node name="snatch_the_loot" type="Sprite" parent="HUD" index="2"]
 
-position = Vector2( 511.5, 803.573 )
-scale = Vector2( 0.360399, 0.854369 )
+position = Vector2( -515.173, 555.39 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
