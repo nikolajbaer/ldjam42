@@ -6,7 +6,7 @@ var anim
 func _ready():
 	anim = $HUD/AnimationPlayer
 	$Player.connect("detected",self,"_player_detected")
-	$WayOut.connect("completed",self,"_player_completed")
+	$"Gallery/WayOut".connect("completed",self,"_player_completed")
 	$Muzak.playing = true
 	anim.play("Intro")
 

@@ -9,7 +9,7 @@
 [ext_resource path="res://burglar/Tiles/ColumnFloor.tscn" type="PackedScene" id=7]
 [ext_resource path="res://burglar/Tiles/PictureWall.tscn" type="PackedScene" id=8]
 
-[node name="Tiles" type="Spatial"]
+[node name="Tiles" type="Spatial" index="0"]
 
 [node name="Corner" parent="." index="0" instance=ExtResource( 1 )]
 
