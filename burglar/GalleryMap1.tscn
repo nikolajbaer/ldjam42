@@ -38,6 +38,13 @@ size = Vector2( 20, 20 )
 subdivide_width = 0
 subdivide_depth = 0
 
+[sub_resource type="PlaneMesh" id=5]
+
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+size = Vector2( 20, 20 )
+subdivide_width = 0
+subdivide_depth = 0
+
 [sub_resource type="PlaneMesh" id=6]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
@@ -45,16 +52,8 @@ size = Vector2( 20, 20 )
 subdivide_width = 0
 subdivide_depth = 0
 
-[sub_resource type="PlaneMesh" id=7]
+[node name="Map" type="Spatial"]
 
-custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
-size = Vector2( 20, 20 )
-subdivide_width = 0
-subdivide_depth = 0
-
-[node name="Map" type="Spatial" index="0"]
-
-editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Doorway" parent="." index="0" instance=ExtResource( 1 )]
@@ -104,7 +103,7 @@ material/0 = null
 [node name="BenchFloor" parent="." index="8" instance=ExtResource( 5 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16.6667 )
-mesh = SubResource( 6 )
+mesh = SubResource( 5 )
 
 [node name="EmptyWall3" parent="." index="9" instance=ExtResource( 4 )]
 
@@ -115,26 +114,26 @@ material/0 = null
 [node name="ColumnFloor" parent="." index="10" instance=ExtResource( 6 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0 )
-mesh = SubResource( 7 )
+mesh = SubResource( 6 )
 
 [node name="ColumnFloor4" parent="." index="11" instance=ExtResource( 6 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -20 )
-mesh = SubResource( 7 )
+mesh = SubResource( 6 )
 
 [node name="ColumnFloor5" parent="." index="12" instance=ExtResource( 6 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -20 )
-mesh = SubResource( 7 )
+mesh = SubResource( 6 )
 
 [node name="ColumnFloor2" parent="." index="13" instance=ExtResource( 6 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0 )
-mesh = SubResource( 7 )
+mesh = SubResource( 6 )
 
 [node name="ColumnFloor3" parent="." index="14" instance=ExtResource( 6 )]
 
-mesh = SubResource( 7 )
+mesh = SubResource( 6 )
 
 [node name="Corner3" parent="." index="15" instance=ExtResource( 3 )]
 

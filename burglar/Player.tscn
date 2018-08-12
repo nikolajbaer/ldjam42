@@ -1,14 +1,15 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://burglar/Player.gd" type="Script" id=1]
-[ext_resource path="res://burglar/models/robbie-head.obj" type="ArrayMesh" id=2]
-[ext_resource path="res://racoon.tres" type="Material" id=3]
-[ext_resource path="res://burglar/models/robbie-arm-short.obj" type="ArrayMesh" id=4]
-[ext_resource path="res://burglar/models/robbie-body.obj" type="ArrayMesh" id=5]
-[ext_resource path="res://burglar/models/robbie-arm.obj" type="ArrayMesh" id=6]
-[ext_resource path="res://burglar/models/robbie-foot.obj" type="ArrayMesh" id=7]
-[ext_resource path="res://Idle.tres" type="Animation" id=8]
-[ext_resource path="res://burglar/Player.tres" type="Animation" id=9]
+[ext_resource path="res://burglar/current-environment.tres" type="Environment" id=2]
+[ext_resource path="res://burglar/models/robbie-head.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://racoon.tres" type="Material" id=4]
+[ext_resource path="res://burglar/models/robbie-arm-short.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://burglar/models/robbie-body.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://burglar/models/robbie-arm.obj" type="ArrayMesh" id=7]
+[ext_resource path="res://burglar/models/robbie-foot.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://Idle.tres" type="Animation" id=9]
+[ext_resource path="res://burglar/Player.tres" type="Animation" id=10]
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -176,7 +177,7 @@ tracks/6/keys = {
 "values": [ Vector3( -90, 90, -90 ), Vector3( -86.0719, -121.567, 121.931 ), Vector3( -71.8542, -90, 90 ), Vector3( -90, -87, 90 ), Vector3( -85.3895, 122.962, -122.226 ), Vector3( -70.2768, 90, -90 ) ]
 }
 
-[node name="Player" type="KinematicBody" index="0"]
+[node name="Player" type="KinematicBody"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -196,7 +197,7 @@ script = ExtResource( 1 )
 transform = Transform( -1, 6.03095e-08, -6.32891e-08, 3.61999e-08, 0.944618, 0.32817, 7.95758e-08, 0.32817, -0.944618, 0, 18.2773, -23.3649 )
 keep_aspect = 1
 cull_mask = 1048575
-environment = null
+environment = ExtResource( 2 )
 h_offset = 0.0
 v_offset = 0.0
 doppler_tracking = 0
@@ -238,9 +239,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 2 )
+mesh = ExtResource( 3 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 3 )
+material/0 = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "Visibility", "material" ]
 
 [node name="Right Arm" type="MeshInstance" parent="Pivot/Model" index="1"]
@@ -255,9 +256,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 4 )
+mesh = ExtResource( 5 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 3 )
+material/0 = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Left Arm" type="MeshInstance" parent="Pivot/Model" index="2"]
@@ -272,9 +273,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 4 )
+mesh = ExtResource( 5 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 3 )
+material/0 = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "material" ]
 
 [node name="Body" type="MeshInstance" parent="Pivot/Model" index="3"]
@@ -289,9 +290,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 5 )
+mesh = ExtResource( 6 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 3 )
+material/0 = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "material" ]
 
 [node name="Right Arm Long" type="MeshInstance" parent="Pivot/Model" index="4"]
@@ -307,9 +308,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 6 )
+mesh = ExtResource( 7 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 3 )
+material/0 = ExtResource( 4 )
 _sections_unfolded = [ "material" ]
 
 [node name="Left Arm Long" type="MeshInstance" parent="Pivot/Model" index="5"]
@@ -325,9 +326,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 6 )
+mesh = ExtResource( 7 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 3 )
+material/0 = ExtResource( 4 )
 _sections_unfolded = [ "material" ]
 
 [node name="Spatial" type="Spatial" parent="Pivot/Model" index="6"]
@@ -347,9 +348,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 7 )
+mesh = ExtResource( 8 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 3 )
+material/0 = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "material" ]
 
 [node name="Left Foot" type="MeshInstance" parent="Pivot/Model/Spatial" index="1"]
@@ -364,9 +365,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 7 )
+mesh = ExtResource( 8 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 3 )
+material/0 = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "material" ]
 
 [node name="GrabZone" type="Area" parent="Pivot" index="1"]
@@ -459,9 +460,9 @@ autoplay = "Idle"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Idle = ExtResource( 8 )
+anims/Idle = ExtResource( 9 )
 anims/Run = SubResource( 6 )
-anims/Walk = ExtResource( 9 )
+anims/Walk = ExtResource( 10 )
 blend_times = [  ]
 
 [connection signal="area_entered" from="Pivot/DetectZone" to="." method="_on_DetectZone_area_entered"]
