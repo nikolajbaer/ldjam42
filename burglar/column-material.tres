@@ -1,0 +1,85 @@
+[gd_resource type="SpatialMaterial" load_steps=5 format=2]
+
+[sub_resource type="Curve" id=4]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 107
+_data = [ Vector2( 0.00552663, 0.489258 ), 0.0, -1.13391, 0, 0, Vector2( 0.117361, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.250453, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.36506, 0.650391 ), 0.0, 0.0, 0, 0, Vector2( 0.495379, 0.983398 ), 0.0, 0.0, 0, 0, Vector2( 0.625698, 0.607422 ), 0.0, 0.0, 0, 0, Vector2( 0.702411, 0.575195 ), 0.0, 0.0, 0, 0, Vector2( 0.827184, 0.94043 ), 0.0, 0.0, 0, 0, Vector2( 0.988928, 0.5 ), 0.0, 0.0, 0, 0, Vector2( 0.999095, 0.478516 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+
+flags = 4
+width = 2048
+curve = SubResource( 4 )
+
+[sub_resource type="Curve" id=6]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.24768, 0.317383 ), 0.0, 0.0, 0, 0, Vector2( 0.372454, 0.84375 ), -17.4339, -17.4339, 0, 0, Vector2( 0.546212, 0.414062 ), 0.0, 0.0, 0, 0, Vector2( 0.707956, 0.166992 ), 0.0, 0.0, 0, 0, Vector2( 0.790214, 0.682617 ), 0.0, 0.0, 0, 0, Vector2( 0.932549, 0.231445 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 1.4, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+
+flags = 4
+width = 2048
+curve = SubResource( 6 )
+
+[resource]
+
+render_priority = 0
+flags_transparent = false
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.77
+roughness_texture = SubResource( 7 )
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = true
+ao_light_affect = 0.03
+ao_texture = SubResource( 5 )
+ao_on_uv2 = false
+ao_texture_channel = 0
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+_sections_unfolded = [ "Ambient Occlusion", "Anisotropy" ]
+

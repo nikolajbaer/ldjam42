@@ -2,7 +2,7 @@
 
 [ext_resource path="res://burglar/Treasure.tscn" type="PackedScene" id=1]
 
-[sub_resource type="PlaneMesh" id=5]
+[sub_resource type="PlaneMesh" id=1]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 size = Vector2( 20, 20 )
@@ -36,7 +36,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 5 )
+mesh = SubResource( 1 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Transform" ]

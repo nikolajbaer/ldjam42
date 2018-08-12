@@ -113,7 +113,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0.655877, 0.311765 ), Vector2( 1.32027, 2.60588 ), Vector2( 1.28279, 0.62549 ) ]
 }
 
-[node name="burglar" type="Spatial" index="0"]
+[node name="burglar" type="Spatial"]
 
 script = ExtResource( 1 )
 
