@@ -8,7 +8,7 @@
 [ext_resource path="res://title/instructions.png" type="Texture" id=6]
 [ext_resource path="res://title/rect-bg.png" type="Texture" id=7]
 
-[sub_resource type="ProceduralSky" id=2]
+[sub_resource type="ProceduralSky" id=4]
 
 radiance_size = 4
 sky_top_color = Color( 0.660156, 0.809286, 1, 1 )
@@ -29,10 +29,10 @@ sun_energy = 16.0
 texture_size = 2
 _sections_unfolded = [ "Ground", "Sky", "Sun", "Texture" ]
 
-[sub_resource type="Environment" id=1]
+[sub_resource type="Environment" id=5]
 
 background_mode = 3
-background_sky = SubResource( 2 )
+background_sky = SubResource( 4 )
 background_sky_custom_fov = 0.0
 background_color = Color( 0, 0, 0, 1 )
 background_energy = 1.0
@@ -109,7 +109,7 @@ adjustment_contrast = 1.0
 adjustment_saturation = 1.0
 _sections_unfolded = [ "Ambient Light", "Background", "SSAO", "Tonemap" ]
 
-[node name="Title Screen" type="Node" index="0"]
+[node name="Title Screen" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -213,7 +213,7 @@ texture = ExtResource( 7 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="5"]
 
-environment = SubResource( 1 )
+environment = SubResource( 5 )
 
 [node name="Camera" type="Camera" parent="WorldEnvironment" index="0"]
 
