@@ -9,7 +9,7 @@ extents = Vector3( 15, 19, 5 )
 
 [node name="Treasure" type="MeshInstance"]
 
-transform = Transform( 0.00445341, 0, 0.24996, 0, 0.25, 0, -0.24996, 0, 0.00445341, -14.8458, 2.9465, 19.6117 )
+transform = Transform( 0.00445341, 0, 0.24996, 0, 0.25, 0, -0.24996, 0, 0.00445341, 0, 0, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1

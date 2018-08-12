@@ -66,7 +66,7 @@ func _physics_process(delta):
 		$AnimationPlayer.play("Run")
 
 	
-	if Input.is_action_just_pressed("grab"):
+	if Input.is_action_just_pressed("grab") and grabbed_thing == null:
 		# check collisions for treasure
 		# if treasure, put up arms
 		# if treasure, attach treasure to his...head 
@@ -74,16 +74,20 @@ func _physics_process(delta):
 		for t in maybe_treasures:
 			if t.get_parent().name == "Treasure":
 				grabbed_thing = t.get_parent()
+				var p = grabbed_thing.get_parent()
+				p.remove_child(grabbed_thing)
+				pivot.add_child(grabbed_thing)
+				grabbed_thing.translation  = Vector3(0,6,0)
+				grabbed_thing.rotation.y += deg2rad(90)
 
 	if grabbed_thing:
 		$"Pivot/Model/Left Arm".hide()
 		$"Pivot/Model/Left Arm Long".show()
 		$"Pivot/Model/Right Arm".hide()
 		$"Pivot/Model/Right Arm Long".show()
-		var nv = Vector3(get_translation())
-		nv.y += 6
-		grabbed_thing.set_translation(nv)
-		grabbed_thing.rotation = $Pivot.rotation
+		#var nv = Vector3(0,6,0)
+		#grabbed_thing.set_parent(self)
+		#grabbed_thing.rotation = $Pivot.rotation
 	
 	if !grabbed_thing:
 		pass

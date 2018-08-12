@@ -3,12 +3,12 @@
 [ext_resource path="res://burglar/WayOut.gd" type="Script" id=1]
 [ext_resource path="res://burglar/models/exit.obj" type="ArrayMesh" id=2]
 
-[sub_resource type="CurveTexture" id=4]
+[sub_resource type="CurveTexture" id=1]
 
 flags = 4
 width = 2048
 
-[sub_resource type="SpatialMaterial" id=1]
+[sub_resource type="SpatialMaterial" id=2]
 
 render_priority = 0
 flags_transparent = false
@@ -40,7 +40,7 @@ roughness_texture_channel = 0
 emission_enabled = false
 normal_enabled = true
 normal_scale = 1.05
-normal_texture = SubResource( 4 )
+normal_texture = SubResource( 1 )
 rim_enabled = false
 clearcoat_enabled = false
 anisotropy_enabled = false
@@ -65,20 +65,20 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Albedo", "NormalMap" ]
 
-[sub_resource type="CubeMesh" id=2]
+[sub_resource type="CubeMesh" id=3]
 
-material = SubResource( 1 )
+material = SubResource( 2 )
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 size = Vector3( 6, 10, 2 )
 subdivide_width = 0
 subdivide_height = 0
 subdivide_depth = 0
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape" id=4]
 
-extents = Vector3( 3, 5, 2 )
+extents = Vector3( 10.3031, 5, 2 )
 
-[node name="WayOut" type="Spatial"]
+[node name="WayOut" type="Spatial" index="0"]
 
 script = ExtResource( 1 )
 
@@ -111,7 +111,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 2 )
+mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Transform" ]
@@ -142,7 +142,7 @@ reverb_bus_uniformity = 0.0
 [node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 1 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 disabled = false
 
 
