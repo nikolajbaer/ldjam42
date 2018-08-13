@@ -85,6 +85,7 @@ rings = 2
 [sub_resource type="BoxShape" id=5]
 
 extents = Vector3( 2, 2, 1.5 )
+_sections_unfolded = [ "Resource" ]
 
 [sub_resource type="Animation" id=6]
 
@@ -177,7 +178,7 @@ tracks/6/keys = {
 "values": [ Vector3( -90, 90, -90 ), Vector3( -86.0719, -121.567, 121.931 ), Vector3( -71.8542, -90, 90 ), Vector3( -90, -87, 90 ), Vector3( -85.3895, 122.962, -122.226 ), Vector3( -70.2768, 90, -90 ) ]
 }
 
-[node name="Player" type="KinematicBody"]
+[node name="Player" type="KinematicBody" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -191,6 +192,7 @@ axis_lock_angular_y = false
 axis_lock_angular_z = false
 collision/safe_margin = 0.001
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
 
 [node name="Camera" type="Camera" parent="." index="0"]
 
@@ -210,6 +212,8 @@ far = 500.0
 _sections_unfolded = [ "Transform" ]
 
 [node name="Pivot" type="Spatial" parent="." index="1"]
+
+editor/display_folded = true
 
 [node name="Model" type="MeshInstance" parent="Pivot" index="0"]
 

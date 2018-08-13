@@ -1,8 +1,8 @@
 extends KinematicBody
 
 signal detected
-const SPEED = 3
-const SPRINT = 3
+const SPEED = 4
+const SPRINT = 4
 const GRAVITY = 5
 const MOUSE_SENSITIVITY = 0.1
 var vel
@@ -14,6 +14,8 @@ var grabbed_thing
 var walking
 var idle
 var running
+var caught = false
+var t = 0
 
 func _ready():
 	vel = Vector3(0,0,0)
@@ -27,8 +29,21 @@ func _ready():
 	walking = false
 	running = false
 
+func busted():
+	# HANDS UP SUCKA!
+	caught = true
+	$"Pivot/Model/Left Arm".hide()
+	$"Pivot/Model/Left Arm Long".show()
+	$"Pivot/Model/Right Arm".hide()
+	$"Pivot/Model/Right Arm Long".show()
+	$AnimationPlayer.play("Idle")
+
 func _physics_process(delta):
-		
+	t += delta
+	if caught:
+		#pivot.rotation.y = deg2rad(sin(t) * 90)
+		return
+	
 	var old_state = "idle" if idle else "walking" if walking else "running" if running else "idk"
 
 	var spd = 0
@@ -98,8 +113,9 @@ func _physics_process(delta):
 	vel = move_and_slide(dir)
 
 func _input(event):
-    if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-        pivot.rotate_y(deg2rad(event.relative.x * MOUSE_SENSITIVITY * -1))
+	if caught: return
+	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		pivot.rotate_y(deg2rad(event.relative.x * MOUSE_SENSITIVITY * -1))
 
 
 

@@ -6,7 +6,7 @@
 [ext_resource path="res://burglar/GalleryMap1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://burglar/WayOut.tscn" type="PackedScene" id=5]
 
-[node name="Gallery" type="Spatial" index="0"]
+[node name="Gallery" type="Spatial"]
 
 transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]
@@ -23,14 +23,46 @@ target = NodePath("../DetectionZone")
 
 [node name="DetectionZone" parent="Detectors" index="1" instance=ExtResource( 2 )]
 
+sweep_speed = 2.0
+
+[node name="DetectionZone2" parent="Detectors" index="2" instance=ExtResource( 2 )]
+
+transform = Transform( 0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, 0.819152, -22, 0, -30.6667 )
+sweep_extent = 40.0
+
+[node name="DetectionZone3" parent="Detectors" index="3" instance=ExtResource( 2 )]
+
+transform = Transform( 0.866026, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866026, 14, 0, -22.6667 )
+sweep_extent = 30.0
+
+[node name="DetectionZone6" parent="Detectors" index="4" instance=ExtResource( 2 )]
+
+transform = Transform( 0.996195, 0, 0.087156, 0, 1, 0, -0.087156, 0, 0.996195, 32, 0, -11.3334 )
+sweep_extent = 40.0
+sweep_speed = 2.0
+
+[node name="DetectionZone4" parent="Detectors" index="5" instance=ExtResource( 2 )]
+
+transform = Transform( -0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, -0.5, -16, 0, 39.3333 )
+sweep_extent = 35.0
+
+[node name="DetectionZone7" parent="Detectors" index="6" instance=ExtResource( 2 )]
+
+transform = Transform( -0.996195, 0, -0.0871561, 0, 1, 0, 0.0871561, 0, -0.996195, -6.66667, -14, 54.6667 )
+sweep_extent = 35.0
+
+[node name="DetectionZone5" parent="Detectors" index="7" instance=ExtResource( 2 )]
+
+transform = Transform( 0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866026, 16.6667, 0, 39.3333 )
+sweep_extent = 35.0
+
 [node name="Alarm" type="Spatial" parent="." index="1"]
 
-editor/display_folded = true
 script = ExtResource( 3 )
 
 [node name="Alarm" type="OmniLight" parent="Alarm" index="0"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22, -8.66667 )
 layers = 1
 light_color = Color( 1, 0, 0, 1 )
 light_energy = 0.0

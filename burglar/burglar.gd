@@ -17,7 +17,6 @@ func _ready():
 	treasurespot = $"Gallery/TreasureSpot"
 	startingspot = $"Gallery/StartingSpot"
 	
-
 func _player_detected():
 	if not tripped:
 		$Gallery/Alarm.trip_alarm()
@@ -26,7 +25,8 @@ func _player_detected():
 		anim.stop(true)
 		anim.seek(0, true)
 		anim.play("Busted")
-		get_tree().paused = true
+		$Player.busted()
+		#get_tree().paused = true
 		
 func restart_level():
 	# end the scene and start it over.
@@ -35,8 +35,6 @@ func restart_level():
 	var s = ResourceLoader.load("res://burglar/burglar.tscn")
 	get_tree().get_root().add_child(s.instance())
 	get_tree().paused = false
-	
-
 
 func _player_completed():
 	anim.stop(true)
