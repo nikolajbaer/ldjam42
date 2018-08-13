@@ -106,7 +106,7 @@ _sections_unfolded = [ "Ambient Occlusion", "Anisotropy" ]
 
 extents = Vector3( 1.5, 7.5, 1.5 )
 
-[node name="ColumnFloor" type="MeshInstance"]
+[node name="ColumnFloor" type="MeshInstance" index="0"]
 
 layers = 1
 material_override = null
@@ -137,7 +137,7 @@ constant_angular_velocity = Vector3( 0, 0, 0 )
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 shape = SubResource( 2 )
-disabled = true
+disabled = false
 _sections_unfolded = [ "Transform" ]
 
 [node name="Column" type="StaticBody" parent="." index="1"]

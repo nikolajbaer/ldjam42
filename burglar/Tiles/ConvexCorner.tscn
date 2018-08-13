@@ -81,7 +81,7 @@ _sections_unfolded = [ "Ambient Occlusion" ]
 
 extents = Vector3( 10, 7.5, 1 )
 
-[node name="ConvexCorner" type="MeshInstance"]
+[node name="ConvexCorner" type="MeshInstance" index="0"]
 
 layers = 1
 material_override = null
@@ -99,7 +99,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Floor" type="StaticBody" parent="." index="0"]
 
-editor/display_folded = true
 input_ray_pickable = true
 input_capture_on_drag = false
 collision_layer = 1
@@ -113,7 +112,7 @@ constant_angular_velocity = Vector3( 0, 0, 0 )
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 shape = SubResource( 2 )
-disabled = true
+disabled = false
 _sections_unfolded = [ "Transform" ]
 
 [node name="Wall1" type="StaticBody" parent="." index="1"]
@@ -150,7 +149,7 @@ _sections_unfolded = [ "Transform", "material" ]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 1 )
 shape = SubResource( 5 )
-disabled = true
+disabled = false
 _sections_unfolded = [ "Transform" ]
 
 [node name="Wall2" type="StaticBody" parent="." index="2"]
@@ -187,7 +186,7 @@ _sections_unfolded = [ "Transform", "material" ]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 1 )
 shape = SubResource( 5 )
-disabled = true
+disabled = false
 _sections_unfolded = [ "Transform" ]
 
 

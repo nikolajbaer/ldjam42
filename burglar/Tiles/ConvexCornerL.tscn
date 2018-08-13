@@ -1,37 +1,37 @@
 [gd_scene load_steps=14 format=2]
 
-[sub_resource type="PlaneMesh" id=3]
+[sub_resource type="PlaneMesh" id=1]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 size = Vector2( 60, 20 )
 subdivide_width = 0
 subdivide_depth = 0
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=2]
 
 extents = Vector3( 10, 1, 10 )
 
-[sub_resource type="PlaneMesh" id=5]
+[sub_resource type="PlaneMesh" id=3]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 size = Vector2( 20, 15 )
 subdivide_width = 0
 subdivide_depth = 0
 
-[sub_resource type="Curve" id=1]
+[sub_resource type="Curve" id=4]
 
 min_value = 0.0
 max_value = 1.0
 bake_resolution = 100
 _data = [ Vector2( 0.000905387, 1 ), 0.0, 0.942374, 0, 0, Vector2( 0.578561, 0.875977 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=6]
+[sub_resource type="CurveTexture" id=5]
 
 flags = 4
 width = 2048
-curve = SubResource( 1 )
+curve = SubResource( 4 )
 
-[sub_resource type="SpatialMaterial" id=7]
+[sub_resource type="SpatialMaterial" id=6]
 
 render_priority = 0
 flags_transparent = false
@@ -67,7 +67,7 @@ clearcoat_enabled = false
 anisotropy_enabled = false
 ao_enabled = true
 ao_light_affect = 0.01
-ao_texture = SubResource( 6 )
+ao_texture = SubResource( 5 )
 ao_on_uv2 = false
 ao_texture_channel = 0
 depth_enabled = false
@@ -87,19 +87,19 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Ambient Occlusion" ]
 
-[sub_resource type="BoxShape" id=8]
+[sub_resource type="BoxShape" id=7]
 
 extents = Vector3( 10, 7.5, 1 )
 
-[sub_resource type="Gradient" id=9]
+[sub_resource type="Gradient" id=8]
 
 offsets = PoolRealArray( 0, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 0.472656, 0.472656, 0.472656, 1 )
 
-[sub_resource type="GradientTexture" id=2]
+[sub_resource type="GradientTexture" id=9]
 
 flags = 4
-gradient = SubResource( 9 )
+gradient = SubResource( 8 )
 width = 2048
 
 [sub_resource type="SpatialMaterial" id=10]
@@ -138,7 +138,7 @@ clearcoat_enabled = false
 anisotropy_enabled = false
 ao_enabled = true
 ao_light_affect = 0.01
-ao_texture = SubResource( 2 )
+ao_texture = SubResource( 9 )
 ao_on_uv2 = false
 ao_texture_channel = 0
 depth_enabled = false
@@ -225,7 +225,7 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Ambient Occlusion" ]
 
-[node name="ConvexCorner" type="MeshInstance"]
+[node name="ConvexCorner" type="MeshInstance" index="0"]
 
 layers = 1
 material_override = null
@@ -236,7 +236,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Transform" ]
@@ -255,8 +255,8 @@ constant_angular_velocity = Vector3( 0, 0, 0 )
 [node name="CollisionShape" type="CollisionShape" parent="Floor" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
-shape = SubResource( 4 )
-disabled = true
+shape = SubResource( 2 )
+disabled = false
 _sections_unfolded = [ "Transform" ]
 
 [node name="Floor2" type="StaticBody" parent="." index="1"]
@@ -274,8 +274,8 @@ constant_angular_velocity = Vector3( 0, 0, 0 )
 [node name="CollisionShape" type="CollisionShape" parent="Floor2" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
-shape = SubResource( 4 )
-disabled = true
+shape = SubResource( 2 )
+disabled = false
 _sections_unfolded = [ "Transform" ]
 
 [node name="Wall1" type="StaticBody" parent="." index="2"]
@@ -303,16 +303,16 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 5 )
+mesh = SubResource( 3 )
 skeleton = NodePath("..")
-material/0 = SubResource( 7 )
+material/0 = SubResource( 6 )
 _sections_unfolded = [ "Transform", "material" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="Wall1" index="1"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 1 )
-shape = SubResource( 8 )
-disabled = true
+shape = SubResource( 7 )
+disabled = false
 _sections_unfolded = [ "Transform" ]
 
 [node name="Wall2" type="StaticBody" parent="." index="3"]
@@ -340,7 +340,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 5 )
+mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = SubResource( 10 )
 _sections_unfolded = [ "Transform", "material" ]
@@ -357,7 +357,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 5 )
+mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = SubResource( 13 )
 _sections_unfolded = [ "Transform", "material" ]
@@ -365,15 +365,15 @@ _sections_unfolded = [ "Transform", "material" ]
 [node name="CollisionShape" type="CollisionShape" parent="Wall2" index="2"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 1 )
-shape = SubResource( 8 )
-disabled = true
+shape = SubResource( 7 )
+disabled = false
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2" type="CollisionShape" parent="Wall2" index="3"]
 
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11, 7.5, -10 )
-shape = SubResource( 8 )
-disabled = true
+shape = SubResource( 7 )
+disabled = false
 _sections_unfolded = [ "Transform" ]
 
 

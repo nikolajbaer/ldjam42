@@ -146,7 +146,7 @@ _sections_unfolded = [ "Ambient Occlusion" ]
 
 extents = Vector3( 10, 7.5, 1 )
 
-[node name="EmptyWall" type="MeshInstance"]
+[node name="EmptyWall" type="MeshInstance" index="0"]
 
 layers = 1
 material_override = null
@@ -177,7 +177,7 @@ constant_angular_velocity = Vector3( 0, 0, 0 )
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 shape = SubResource( 3 )
-disabled = true
+disabled = false
 _sections_unfolded = [ "Transform" ]
 
 [node name="Wall2" type="StaticBody" parent="." index="1"]
@@ -214,7 +214,7 @@ _sections_unfolded = [ "Transform", "material" ]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 1 )
 shape = SubResource( 8 )
-disabled = true
+disabled = false
 _sections_unfolded = [ "Transform" ]
 
 

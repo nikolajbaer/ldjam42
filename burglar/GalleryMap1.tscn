@@ -52,7 +52,7 @@ size = Vector2( 20, 20 )
 subdivide_width = 0
 subdivide_depth = 0
 
-[node name="Map" type="Spatial"]
+[node name="Map" type="Spatial" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 

@@ -49,7 +49,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Floor" type="StaticBody" parent="." index="0"]
 
-editor/display_folded = true
 input_ray_pickable = true
 input_capture_on_drag = false
 collision_layer = 1
@@ -64,7 +63,7 @@ _sections_unfolded = [ "Transform" ]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 shape = SubResource( 2 )
-disabled = true
+disabled = false
 _sections_unfolded = [ "Transform" ]
 
 [node name="Wall1" type="StaticBody" parent="." index="1"]
@@ -135,7 +134,7 @@ _sections_unfolded = [ "Transform", "material" ]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 1 )
 shape = SubResource( 5 )
-disabled = true
+disabled = false
 _sections_unfolded = [ "Transform" ]
 
 
